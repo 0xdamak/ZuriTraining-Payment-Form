@@ -1,0 +1,294 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 5rem 4rem;
+    border-radius: .4rem;
+    width: 50vw;
+
+    @include respond(1024px) {
+        width: 63vw;
+    }
+
+    @include respond(768px) {
+        width: 75vw;
+    }
+
+    @include respond(680px) {
+        width: 80vw;
+    }
+
+    @include respond(375px) {
+        width: 85vw;
+        padding: 3rem;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+        transition: all .3s;
+        text-align: center;
+        background: linear-gradient(to right, #145388, #E7332B);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        &:hover {
+            transform: scale(1.03) skewY(1deg) skewX(15deg);
+            text-shadow: 0.5rem 1rem 1rem rgba(0, 0, 0, .2);
+        }
+    }
+
+    form {
+        display: grid;
+        grid-template-rows: min-content;
+        width: 90%;
+
+        @include respond(624px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: none;
+        }
+
+        @include respond(520px) {
+            width: 100%;
+        }
+
+        h4 {
+            color: var(--color-secondary);
+            margin-bottom: .6rem;
+
+            &:nth-child() {
+                @include respond(1000px) {
+                    margin-bottom: -2rem;
+                }
+            }
+        }
+
+        .input-group {
+            grid-column: 1 / -1;
+            
+        
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+
+            .input-box {
+                display: flex;
+                align-items: center;
+
+                input {
+                    padding: .5rem ;
+                    border: 1px solid #ccc;
+                    outline: none;
+                }
+
+                i {
+                    transform: translateX(-2rem);
+                }
+            }
+
+            // fullname, username
+            &:nth-child(2) {
+                display: flex;
+                grid-row: 2;
+                grid-column: 1;
+
+                .input-box:nth-child(1) {
+                    @include respond(624px) {
+                        margin-bottom: 2rem;
+                    }
+                }
+
+                @include respond(624px) {
+                    flex-direction: column;
+                }
+            }
+            // end of fullname, username
+
+            // email
+            &:nth-child(3) {
+                grid-row: 2;
+                grid-column: 2;
+
+                @include respond(1395px) {
+                    grid-row: 3;
+                    grid-column: 1;
+                }
+            }
+            // end of email
+
+            // dob & gender
+            &:nth-child(4) {
+                flex-direction: column;
+
+                .input-box {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+
+                    @include respond(624px) {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    h4 {
+                        grid-column: 1 / -1;
+
+                        @include respond(900px) {
+                            margin-right: 2rem;
+                            transform: translateY(.3rem);
+                        }
+                    }
+    
+                    &:nth-child(1) {
+                        margin-bottom: 2rem;
+
+                        input {
+                            width: 35%;
+                            grid-row: 2;
+
+                            @include respond(900px) {
+                                width: 40%;
+                            }
+
+                            @include respond(624px) {
+                                width: 15%;
+                            }
+
+                            &[placeholder="MM"] {
+                                transform: translateX(-7rem);
+
+                                @include respond(624px) {
+                                    transform: translateX(0);
+                                }
+                            }
+
+                            &[placeholder="YYY"] {
+                                transform: translateX(-14rem);
+
+                                @include respond(624px) {
+                                    transform: translateX(0);
+                                }
+                            }
+                        }
+
+                    }
+
+                    &:nth-child(2) {
+                        grid-template-columns: min-content 1fr min-content 1fr;
+
+                        input {
+                            margin-right: 1rem;
+
+                            @include respond(624px) {
+                                margin-right: .3rem;
+                            }
+                        }
+
+                        label {
+                            margin-right: 1rem;
+                        }
+                    }
+                }
+            }
+            // end of dob & gender
+
+            // payment details
+            &:nth-child(5) {
+                
+                .input-box {
+                    display: grid;
+                    grid-template-columns: min-content 1fr min-content 1fr;
+
+                    
+
+                    h4 {
+                        grid-column: 1 / -1;
+                        
+                        @include respond(624px) {
+                            text-align: center;
+                        }
+                    }
+
+                    label {
+                        
+                        margin-left: 3rem;
+
+                        span {
+                            i {
+                                &::before {
+                                    margin-right: .5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // end of payment details
+
+            // card number
+            &:nth-child(6) {
+
+            }
+            // end of card number
+
+            // card cvc
+            &:nth-child(7) {
+                grid-column: 2;
+
+                display: flex;
+                transform: translateX(-16rem);
+
+                @include respond(1395px) {
+                    grid-column: 1;
+                    transform: translateX(0);
+                }
+
+                @include respond(900px) {
+                    flex-direction: column;
+                }
+
+                .input-box {
+                    select {
+                        background-color: #ccc;
+                        border: none;
+                        padding: .4rem .2rem;
+
+                        &:not(:last-child) {
+                            margin-right: 1rem;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        @include respond(900px) {
+                            margin-top: 2rem;
+                        }
+                    }
+                }
+            }
+            // end of card cvc
+
+            // button
+            &:nth-child(8) {
+                button {
+                    background-color: var(--color-tertiary);
+                    color: #ffffff;
+                    border: none;
+                    padding: 1rem 2rem;
+                    cursor: pointer;
+                    transition: all .2s;
+                    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
+                    outline-offset: .3rem;
+
+                    &:hover {
+                        background-color: var(--color-secondary);
+                    }
+                }
+            }
+            // end of button
+        }        
+    }
+}

@@ -1,0 +1,55 @@
+:root {
+    --color-primary: #555555;
+
+    --color-secondary: #145388;
+
+    --color-tertiary: #E7332B;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+
+    @include respond(480px) {
+        font-size: 56.25%;
+    }
+
+    @include respond(420px) {
+        font-size: 50%;
+    }
+
+    @include respond(375px) {
+        font-size: 45%;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // padding: 5rem 0;
+    line-height: 1.6;
+    height: 100vh;
+    background-color: var(--color-secondary);
+    background: linear-gradient(to right bottom, #1f80d2, #165c97);
+}
+
+a,
+a:visited,
+a:hover {
+    text-decoration: none;
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: #fff;
+}
